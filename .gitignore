@@ -1,0 +1,3 @@
+# .gitignore file to avoid syncing pycache folders
+__pycache__/
+*.pyc

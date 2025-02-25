@@ -89,19 +89,20 @@ pip install -r src/requirements.txt
 The repository is organized as follows:
 
 ```
-Floyd-Warshall/
+FloydWarshallAlgorithm/
 ├── src/
 │   ├── iterative/
-│   │   ├── __init__.py
+│   │   ├── __init__.py             init file for module imports.
 │   │   └── iterative_floyd.py      Iterative implementation of Floyd-Warshall.
 │   ├── recursion/
-│   │   ├── __init__.py
+│   │   ├── __init__.py             init file for module imports.
 │   │   └── recursive_floyd.py      Recursive implementation of Floyd-Warshall.
 │   ├── tests/
-│   │   ├── __init__.py
+│   │   ├── __init__.py             init file for module imports.
 │   │   ├── performance_test.py     Performance testing script.
 │   │   ├── testgraphs.py           Sample graphs for testing.
 │   │   └── unittests.py            Unit tests.
+│   └── __init__.py                 init file for module imports.
 │   └── requirements.txt            Python dependencies.
 ├── LICENSE                         Project license.
 └── README.md                       Project documentation.
@@ -111,13 +112,12 @@ Floyd-Warshall/
 
 ### Sample Graphs ###
 
-This project includes several sample graphs for testing different scenarios:
+This project includes several sample graphs for testing different scenarios, including:
 
-1. **Small Graph (4 Nodes)**: A simple graph with basic connections.
-2. **Disconnected Graph**: A graph where some nodes are completely disconnected.
-3. **Graph with Negative Weights**: A graph with negative edge weights but no negative cycles.
-4. **Graph with Negative Cycle**: A graph containing a negative weight cycle (to test failure cases).
-5. **Extra-Large Graph (16 Nodes)**: A larger graph to test scalability.
+1. **Graph n Nodes**: Graphs with between 2 to 10 nodes.
+2. **Disconnected Graph**: A graph where no nodes are connected.
+3. **Connected Graph**: A graph where all nodes are connected.
+4. **Graph with Negative Weights**: A graph with negative weights but no negative cycles.
 
 All sample graphs are defined in `src/tests/testgraphs.py`.
 
@@ -137,5 +137,4 @@ For questions or issues, please contact:
 - **Author**: Rami Albaroudi
 - **Email**: sgralbar@liverpool.ac.uk
 
-```
 

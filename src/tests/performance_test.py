@@ -4,12 +4,9 @@ compares the recursive version of Floyd's algorithm with the
 imperative version.
 """
 # Imports
-import sys
-import os
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from tests.testgraphs import TEST_GRAPHS
-from recursion.recursive_floyd import recursive_floyd as recursive
-from iterative.iterative_floyd import iterative_floyd as iterative
+from src.tests.testgraphs import TEST_GRAPHS
+from src.recursion.recursive_floyd import recursive_floyd as recursive
+from src.iterative.iterative_floyd import iterative_floyd as iterative
 from time import process_time
 
 def performance_test():
