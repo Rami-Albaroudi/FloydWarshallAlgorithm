@@ -4,9 +4,14 @@ compares the recursive version of Floyd's algorithm with the
 imperative version.
 """
 # Imports
-from src.tests.testgraphs import TEST_GRAPHS
-from src.recursion.recursive_floyd import recursive_floyd as recursive
-from src.iterative.iterative_floyd import iterative_floyd as iterative
+from pathlib import Path
+# Get parent directory and add to path
+parent_dir = Path(__file__).parent.parent
+import sys
+sys.path.append(str(parent_dir))
+from tests.testgraphs import TEST_GRAPHS
+from recursion.recursive_floyd import recursive_floyd as recursive
+from iterative.iterative_floyd import iterative_floyd as iterative
 from time import process_time
 
 def performance_test():
@@ -31,6 +36,7 @@ def performance_test():
 
         # Overwrite the global GRAPH variable with the current graph
         GRAPH = graph
+        print(GRAPH)
 
         # Set up MAX_LENGTH for the current graph
         MAX_LENGTH = len(graph)
