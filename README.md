@@ -58,7 +58,7 @@ python src/iterative/iterative_floyd.py
 ```
 
 #### 3. Run Performance Tests:
-The performance test compares recursive and iterative implementations across various sample graphs.
+The performance test compares recursive and iterative execution times across various sample graphs.
 ```
 python src/tests/performance_test.py
 ```
@@ -114,7 +114,7 @@ FloydWarshallAlgorithm/
 
 This project includes several sample graphs for testing different scenarios, including:
 
-1. **Graph n Nodes**: Graphs with between 2 to 10 nodes.
+1. **Graph n Nodes**: Graphs with between 2 to 16 nodes.
 2. **Disconnected Graph**: A graph where no nodes are connected.
 3. **Connected Graph**: A graph where all nodes are connected.
 4. **Graph with Negative Weights**: A graph with negative weights but no negative cycles.
