@@ -9,9 +9,14 @@ from pathlib import Path
 parent_dir = Path(__file__).parent.parent
 import sys
 sys.path.append(str(parent_dir))
+# Import test graphs
 from tests.testgraphs import TEST_GRAPHS
-from recursion.recursive_floyd import recursive_floyd as recursive
-from iterative.iterative_floyd import iterative_floyd as iterative
+# Import recursive and iterative modules and functions
+import recursion.recursive_floyd as recursive_module
+from recursion.recursive_floyd import recursive_floyd as recursive_function
+import iterative.iterative_floyd as iterative_module
+from iterative.iterative_floyd import iterative_floyd as iterative_function
+# Import process_time for performance testing
 from time import process_time
 
 def performance_test():
@@ -23,52 +28,49 @@ def performance_test():
     Returns:
     None
     """
-    # Designated GRAPH as a global variable
-    global GRAPH
 
     # Number of iterations for process_time
     # Iterations over 10,000 may take a significant amount of time
-    iterations = 10_000
+    iterations = 100_000
 
     # Test each graph in TEST_GRAPHS
     for graph_name, graph in TEST_GRAPHS.items():
         print(f"\n=== Testing {graph_name} ===")
 
-        # Overwrite the global GRAPH variable with the current graph
-        GRAPH = graph
-        print(GRAPH)
-
-        # Set up MAX_LENGTH for the current graph
-        MAX_LENGTH = len(graph)
-
-        # Measure recursive time using process_time
+        # Measure recursive time
         start_recursive = process_time()
         for i in range(iterations):
-            recursive(0, 0, 0)
+            # Reset graph for each iteration using list comprehension
+            recursive_module.GRAPH = [row[:] for row in graph]
+            recursive_module.MAX_LENGTH = len(graph)
+            recursive_function()
         end_recursive = process_time()
-        total_recursive_time_process = end_recursive - start_recursive
+        total_recursive_time = end_recursive - start_recursive
 
-        # Measure iterative time using process_time
+        # Measure iterative time
         start_iterative = process_time()
         for i in range(iterations):
-            iterative()
+            # Reset graph for each iteration using list comprehension
+            iterative_module.GRAPH = [row[:] for row in graph]
+            iterative_module.MAX_LENGTH = len(graph)
+            iterative_function()
         end_iterative = process_time()
-        total_iterative_time_process = end_iterative - start_iterative
+        total_iterative_time = end_iterative - start_iterative
 
         # Calculate average times per iteration
-        avg_recursive_time_process = total_recursive_time_process / iterations
-        avg_iterative_time_process = total_iterative_time_process / iterations
+        avg_recursive_time = total_recursive_time / iterations
+        avg_iterative_time = total_iterative_time / iterations
 
         # Print results for this graph
         print(f"\nResults:")
         print(
-            f"Recursive Time per Iteration: {avg_recursive_time_process:.8f} seconds")
+            f"Recursive Time per Iteration: {avg_recursive_time:.8f} seconds")
         print(
-            f"Iterative Time per Iteration: {avg_iterative_time_process:.8f} seconds")
+            f"Iterative Time per Iteration: {avg_iterative_time:.8f} seconds")
         print(
-            f"Total Recursive Time: {total_recursive_time_process:.8f} seconds")
+            f"Total Recursive Time: {total_recursive_time:.8f} seconds")
         print(
-            f"Total Iterative Time: {total_iterative_time_process:.8f} seconds")
+            f"Total Iterative Time: {total_iterative_time:.8f} seconds")
 
 
 # Run performance tests for both implementations side by side for each graphs

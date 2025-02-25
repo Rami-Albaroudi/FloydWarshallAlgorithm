@@ -30,7 +30,7 @@ def main():
     This is the calling function for the recursive floyd's algorithm
     """
 
-    recursive_floyd(0, 0, 0)
+    recursive_floyd()
     print_out_graph()
 
 
@@ -51,7 +51,7 @@ def print_out_graph():
             print(message)
 
 
-def recursive_floyd(outer_loop: int, middle_loop: int, inner_loop: int):
+def recursive_floyd(outer_loop: int = 0, middle_loop: int = 0, inner_loop: int = 0):
     """
     This function computes shortest path between each pair node
     It computes by comparing a direct path with paths that have 

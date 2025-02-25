@@ -22,16 +22,6 @@ GRAPH_4 = [
     [2, NO_PATH, 7, 0]
 ]
 
-# 6-Node Graph
-GRAPH_6 = [
-    [0, 3, NO_PATH, NO_PATH, 8, 2],
-    [3, 0, 1, NO_PATH, NO_PATH, NO_PATH],
-    [NO_PATH, 1, 0, 2, NO_PATH, NO_PATH],
-    [NO_PATH, NO_PATH, 2, 0, 4, 6],
-    [8, NO_PATH, NO_PATH, 4, 0, NO_PATH],
-    [2, NO_PATH, NO_PATH, 6, NO_PATH, 0]
-]
-
 # 8-Node Graph
 GRAPH_8 = [
     [0, 4, NO_PATH, NO_PATH, 8, NO_PATH, NO_PATH, NO_PATH],
@@ -44,15 +34,15 @@ GRAPH_8 = [
     [NO_PATH, 7, NO_PATH, NO_PATH, NO_PATH, NO_PATH, 3, 0]
 ]
 
-# 10-Node Graph
-GRAPH_10 = [
+# 16-Node Graph
+GRAPH_16 = [
     [0, 3, NO_PATH, NO_PATH, 7, NO_PATH, NO_PATH, NO_PATH, NO_PATH, 2],
     [3, 0, 1, NO_PATH, NO_PATH, 4, NO_PATH, NO_PATH, NO_PATH, NO_PATH],
     [NO_PATH, 1, 0, 6, NO_PATH, NO_PATH, 5, NO_PATH, NO_PATH, NO_PATH],
     [NO_PATH, NO_PATH, 6, 0, 2, NO_PATH, NO_PATH, 8, NO_PATH, NO_PATH],
     [7, NO_PATH, NO_PATH, 2, 0, 3, NO_PATH, NO_PATH, 4, NO_PATH],
     [NO_PATH, 4, NO_PATH, NO_PATH, 3, 0, 1, NO_PATH, NO_PATH, 6],
-    [NO_PATH, NO_PATH, 5, NO_PATH, NO_PATH, 1, 0, 2.5 ,NO_PATH]
+    [NO_PATH, NO_PATH, 5, NO_PATH, NO_PATH, 1, 0, 2.5 ,NO_PATH, 7]
 ]
 
 # Connected graph (all nodes connected)
@@ -80,15 +70,60 @@ GRAPH_NEGATIVE = [
     [NO_PATH, 1, NO_PATH, 0]
 ]
 
-
 # Dictionary of all test graphs
 TEST_GRAPHS = {
     "2 Node Graph": GRAPH_2,
     "4 Node Graph": GRAPH_4,
-    "6 Node Graph": GRAPH_6,
     "8 Node Graph": GRAPH_8,
-    "10 Node Graph": GRAPH_10,
+    "16 Node Graph": GRAPH_16,
     "Connected Graph": GRAPH_CONNECTED,
     "Disconnected Graph": GRAPH_DISCONNECTED,
     "Negative Weights Graph": GRAPH_NEGATIVE,
+}
+
+"""Expected outputs for each graph"""
+
+# 2-Node Graph Expected Output
+EXPECTED_GRAPH_2 = [
+
+]
+
+# 4-Node Graph Expected Output
+EXPECTED_GRAPH_4 = [
+
+]
+
+# 8-Node Graph Expected Output
+EXPECTED_GRAPH_8 = [
+
+]
+
+# 16-Node Graph Expected Output
+EXPECTED_GRAPH_16 = [
+
+]
+
+# Connected Graph Expected Output
+EXPECTED_GRAPH_CONNECTED = [
+
+]
+# Disconnected Graph Expected Output
+EXPECTED_GRAPH_DISCONNECTED = [
+
+]
+
+# Negative Weight Graph Expected Output
+EXPECTED_GRAPH_NEGATIVE = [
+
+]
+
+# Dictionary of all test graphs' expected results
+TEST_GRAPHS_EXPECTED = {
+    "2 Node Graph": EXPECTED_GRAPH_2,
+    "4 Node Graph": EXPECTED_GRAPH_4,
+    "8 Node Graph": EXPECTED_GRAPH_8,
+    "16 Node Graph": EXPECTED_GRAPH_16,
+    "Connected Graph": EXPECTED_GRAPH_CONNECTED,
+    "Disconnected Graph": EXPECTED_GRAPH_DISCONNECTED,
+    "Negative Weights Graph": EXPECTED_GRAPH_NEGATIVE,
 }
