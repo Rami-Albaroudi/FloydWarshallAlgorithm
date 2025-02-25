@@ -12,6 +12,7 @@ The global variables are:
     MAX_LENGTH = The size of the graph
     NO_PATH_MARKER = Holder for no path possible. This is used for the printing function. 
 """
+# Imports
 from sys import maxsize
 from itertools import product
 NO_PATH = maxsize

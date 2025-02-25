@@ -3,7 +3,7 @@ This module contains a simple performance test which
 compares the recursive version of Floyd's algorithm with the
 imperative version.
 """
-
+# Imports
 import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
@@ -25,11 +25,12 @@ def performance_test():
     global GRAPH
 
     # Number of iterations for process_time
-    iterations = 1_00_000
+    # Iterations over 10,000 may take a significant amount of time
+    iterations = 10_000
 
     # Test each graph in TEST_GRAPHS
     for graph_name, graph in TEST_GRAPHS.items():
-        print(f"\n=== Testing {graph_name} Graph ===")
+        print(f"\n=== Testing {graph_name} ===")
 
         # Overwrite the global GRAPH variable with the current graph
         GRAPH = graph
@@ -56,7 +57,7 @@ def performance_test():
         avg_iterative_time_process = total_iterative_time_process / iterations
 
         # Print results for this graph
-        print(f"\n=== Results ===")
+        print(f"\nResults:")
         print(
             f"Recursive Time per Iteration: {avg_recursive_time_process:.8f} seconds")
         print(

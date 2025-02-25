@@ -13,6 +13,7 @@ The global variables are:
     MIN_LEVEL = The lowest search level for the shortest path calculation
     NO_PATH_MARKER = Holder for no path possible. This is used for the printing function. 
 """
+# Imports
 from sys import maxsize
 NO_PATH = maxsize
 GRAPH = [[0,   7,  NO_PATH, 8],
@@ -58,8 +59,6 @@ def recursive_floyd(outer_loop: int, middle_loop: int, inner_loop: int):
 
     The recursive path is the shortest path function which
     calls itself to find the shortest path between a pair of nodes
-
-    You need to increment each variable until it reaches a loop
 
     param: outer_loop: This variable is from the first loop of the iterative version.
     It represents the intermediate node.

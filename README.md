@@ -5,11 +5,11 @@ This repository contains implementations of the Floyd-Warshall algorithm for fin
 ---
 
 ### What is this repository for? ###
-- **Purpose**: To provide a simple yet comprehensive implementation of the Floyd-Warshall algorithm for educational purposes.
-- **Version**: 0.1
+- **Purpose**: To provide a simple and comprehensive implementation of the Floyd-Warshall algorithm using both recursion and iteration, then compare each approach's performance.
+- **Version**: 1.0
 - **Key Features**:
   - Recursive and iterative implementations of Floyd-Warshall.
-  - Sample graphs for testing various scenarios (e.g., disconnected graphs, negative weights).
+  - Sample graphs for testing various scenarios (ex: disconnected graphs, negative weights).
   - Unit tests to verify correctness.
   - Performance benchmarking scripts.
 
@@ -33,8 +33,8 @@ conda activate floyd_env
 Alternatively, use `venv`:
 ```
 python -m venv env
-source env/bin/activate   \# On macOS/Linux
-env\Scripts\activate      \# On Windows
+source env/bin/activate    On macOS/Linux
+env\Scripts\activate       On Windows
 ```
 
 #### 3. Install Dependencies
@@ -64,7 +64,7 @@ python src/tests/performance_test.py
 ```
 
 #### 4. Run Unit Tests:
-Unit tests ensure that both implementations produce correct results.
+Unit tests ensure that both algorithm implementations produce correct results.
 ```
 python -m unittest discover src/tests/
 ```
@@ -93,17 +93,18 @@ Floyd-Warshall/
 ├── src/
 │   ├── iterative/
 │   │   ├── __init__.py
-│   │   └── iterative_floyd.py      \# Iterative implementation of Floyd-Warshall.
+│   │   └── iterative_floyd.py      Iterative implementation of Floyd-Warshall.
 │   ├── recursion/
 │   │   ├── __init__.py
-│   │   └── recursive_floyd.py      \# Recursive implementation of Floyd-Warshall.
+│   │   └── recursive_floyd.py      Recursive implementation of Floyd-Warshall.
 │   ├── tests/
 │   │   ├── __init__.py
-│   │   ├── performance_test.py     \# Performance comparison script.
-│   │   ├── testgraphs.py           \# Sample graphs for testing.
-│   │   └── unittests.py            \# Unit tests for correctness.
-│   └── requirements.txt            \# Python dependencies.
-└── README.md                       \# Project documentation.
+│   │   ├── performance_test.py     Performance testing script.
+│   │   ├── testgraphs.py           Sample graphs for testing.
+│   │   └── unittests.py            Unit tests.
+│   └── requirements.txt            Python dependencies.
+├── LICENSE                         Project license.
+└── README.md                       Project documentation.
 ```
 
 ---
@@ -125,17 +126,16 @@ All sample graphs are defined in `src/tests/testgraphs.py`.
 ### Known Issues ###
 
 - The recursive implementation may be slower for larger graphs due to recursion overhead in Python.
-- The algorithm does not handle negative weight cycles; such cases may produce incorrect results.
+- The algorithm does not handle negative weight cycles since such cases may produce incorrect results.
 
 ---
 
 ### Who do I talk to? ###
 
-For questions or issues, contact:
+For questions or issues, please contact:
 
 - **Author**: Rami Albaroudi
 - **Email**: sgralbar@liverpool.ac.uk
 
-Feel free to submit issues or pull requests on the GitHub repository!
 ```
 

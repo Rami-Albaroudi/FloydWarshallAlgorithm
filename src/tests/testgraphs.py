@@ -66,10 +66,10 @@ GRAPH_CONNECTED = [
 
 # Disconnected graph (all nodes not connected)
 GRAPH_DISCONNECTED = [
-    [0, NO_PATH, NO_PATH, NO_PATH],
-    [NO_PATH, 0, NO_PATH, NO_PATH],
-    [NO_PATH, NO_PATH, 0, NO_PATH],
-    [NO_PATH, NO_PATH, NO_PATH, 0]
+    [NO_PATH, NO_PATH, NO_PATH, NO_PATH],
+    [NO_PATH, NO_PATH, NO_PATH, NO_PATH],
+    [NO_PATH, NO_PATH, NO_PATH, NO_PATH],
+    [NO_PATH, NO_PATH, NO_PATH, NO_PATH]
 ]
 
 # Graph with negative weights (no negative cycles)
@@ -90,5 +90,5 @@ TEST_GRAPHS = {
     "10 Node Graph": GRAPH_10,
     "Connected Graph": GRAPH_CONNECTED,
     "Disconnected Graph": GRAPH_DISCONNECTED,
-    "Negative Weights": GRAPH_NEGATIVE,
+    "Negative Weights Graph": GRAPH_NEGATIVE,
 }
