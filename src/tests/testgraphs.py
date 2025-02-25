@@ -1,20 +1,29 @@
 '''
-File containing sample graphs for testing.
+File containing a variety of sample graphs for testing.
+This file can be imported into the unit testing and 
+performance testing modules. 
 '''
 
+# Imports
 from sys import maxsize
 NO_PATH = maxsize
 
-# 1. Small graph (4 nodes)
-GRAPH_SMALL = [
+# 2-Node Graph
+GRAPH_2 = [
+    [0, 5],
+    [5, 0]
+]
+
+# 4-Node Graph
+GRAPH_4 = [
     [0, 5, 9, 2],
     [5, 0, 3, NO_PATH],
     [9, 3, 0, 7],
     [2, NO_PATH, 7, 0]
 ]
 
-# 2. Medium graph (6 nodes)
-GRAPH_MEDIUM = [
+# 6-Node Graph
+GRAPH_6 = [
     [0, 3, NO_PATH, NO_PATH, 8, 2],
     [3, 0, 1, NO_PATH, NO_PATH, NO_PATH],
     [NO_PATH, 1, 0, 2, NO_PATH, NO_PATH],
@@ -23,8 +32,8 @@ GRAPH_MEDIUM = [
     [2, NO_PATH, NO_PATH, 6, NO_PATH, 0]
 ]
 
-# 3. Large graph (8 nodes)
-GRAPH_LARGE = [
+# 8-Node Graph
+GRAPH_8 = [
     [0, 4, NO_PATH, NO_PATH, 8, NO_PATH, NO_PATH, NO_PATH],
     [4, 0, 3, NO_PATH, NO_PATH, NO_PATH, NO_PATH, 7],
     [NO_PATH, 3, 0, 2, NO_PATH, NO_PATH, NO_PATH, NO_PATH],
@@ -35,26 +44,19 @@ GRAPH_LARGE = [
     [NO_PATH, 7, NO_PATH, NO_PATH, NO_PATH, NO_PATH, 3, 0]
 ]
 
-# 4. Linear graph (path graph)
-GRAPH_LINEAR = [
-    [0, 1, NO_PATH, NO_PATH, NO_PATH],
-    [1, 0, 2, NO_PATH, NO_PATH],
-    [NO_PATH, 2, 0, 3, NO_PATH],
-    [NO_PATH, NO_PATH, 3, 0, 4],
-    [NO_PATH, NO_PATH, NO_PATH, 4, 0]
+# 10-Node Graph
+GRAPH_10 = [
+    [0, 3, NO_PATH, NO_PATH, 7, NO_PATH, NO_PATH, NO_PATH, NO_PATH, 2],
+    [3, 0, 1, NO_PATH, NO_PATH, 4, NO_PATH, NO_PATH, NO_PATH, NO_PATH],
+    [NO_PATH, 1, 0, 6, NO_PATH, NO_PATH, 5, NO_PATH, NO_PATH, NO_PATH],
+    [NO_PATH, NO_PATH, 6, 0, 2, NO_PATH, NO_PATH, 8, NO_PATH, NO_PATH],
+    [7, NO_PATH, NO_PATH, 2, 0, 3, NO_PATH, NO_PATH, 4, NO_PATH],
+    [NO_PATH, 4, NO_PATH, NO_PATH, 3, 0, 1, NO_PATH, NO_PATH, 6],
+    [NO_PATH, NO_PATH, 5, NO_PATH, NO_PATH, 1, 0, 2.5 ,NO_PATH]
 ]
 
-# 5. Circular graph (cycle graph)
-GRAPH_CIRCULAR = [
-    [0, 1, NO_PATH, NO_PATH, 5],
-    [1, 0, 2, NO_PATH, NO_PATH],
-    [NO_PATH, 2, 0, 3, NO_PATH],
-    [NO_PATH, NO_PATH, 3, 0, 4],
-    [5, NO_PATH, NO_PATH, 4, 0]
-]
-
-# 6. Complete graph (all nodes connected)
-GRAPH_COMPLETE = [
+# Connected graph (all nodes connected)
+GRAPH_CONNECTED = [
     [0, 1, 2, 3, 4],
     [1, 0, 5, 6, 7],
     [2, 5, 0, 8, 9],
@@ -62,23 +64,31 @@ GRAPH_COMPLETE = [
     [4, 7, 9, 10, 0]
 ]
 
-# 7. Incomplete graph (no path between some nodes)
+# Disconnected graph (all nodes not connected)
 GRAPH_DISCONNECTED = [
-    [0, 1, 2, NO_PATH, NO_PATH, NO_PATH],
-    [1, 0, 3, NO_PATH, NO_PATH, NO_PATH],
-    [2, 3, 0, NO_PATH, NO_PATH, NO_PATH],
-    [NO_PATH, NO_PATH, NO_PATH, 0, 4, 5],
-    [NO_PATH, NO_PATH, NO_PATH, 4, 0, 6],
-    [NO_PATH, NO_PATH, NO_PATH, 5, 6, 0]
+    [0, NO_PATH, NO_PATH, NO_PATH],
+    [NO_PATH, 0, NO_PATH, NO_PATH],
+    [NO_PATH, NO_PATH, 0, NO_PATH],
+    [NO_PATH, NO_PATH, NO_PATH, 0]
 ]
+
+# Graph with negative weights (no negative cycles)
+GRAPH_NEGATIVE = [
+    [0, -2, NO_PATH, NO_PATH],
+    [NO_PATH, 0, -1, NO_PATH],
+    [-3, NO_PATH, 0, 2],
+    [NO_PATH, 1, NO_PATH, 0]
+]
+
 
 # Dictionary of all test graphs
 TEST_GRAPHS = {
-    "Small": GRAPH_SMALL,
-    "Medium": GRAPH_MEDIUM,
-    "Large": GRAPH_LARGE,
-    "Linear": GRAPH_LINEAR,
-    "Circular": GRAPH_CIRCULAR,
-    "Complete": GRAPH_COMPLETE,
-    "Disconnected": GRAPH_DISCONNECTED,
+    "2 Node Graph": GRAPH_2,
+    "4 Node Graph": GRAPH_4,
+    "6 Node Graph": GRAPH_6,
+    "8 Node Graph": GRAPH_8,
+    "10 Node Graph": GRAPH_10,
+    "Connected Graph": GRAPH_CONNECTED,
+    "Disconnected Graph": GRAPH_DISCONNECTED,
+    "Negative Weights": GRAPH_NEGATIVE,
 }
