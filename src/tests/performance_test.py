@@ -42,14 +42,14 @@ def performance_test(function_handle):
 
     # Number of iterations for process_time
     # Iteration count over 100,000 may take a significant amount of time
-    iterations = 1_000
+    iterations = 100_000
 
     # Iterate through all the test graphs from the
     # TEST_GRAPH dictionary items
     for graph_name, graph in TEST_GRAPHS.items():
 
         print(f"\n= {graph_name} =")
-        total_time = 0 # Initialize timing variable
+        total_time = 0 # Initialise timing variable
 
         # Measure recursive time
         for _ in range(iterations):

@@ -92,7 +92,7 @@ class FloydWarshallTest(unittest.TestCase):
         # Iterate through all the test graphs from the
         # TEST_GRAPH dictionary items
         for graph_name, graph in TEST_GRAPHS.items():
-            
+
             print(f"\nTesting {graph_name}")
 
             # Set up and run test
