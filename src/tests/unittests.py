@@ -30,9 +30,9 @@ class FloydWarshallTest(unittest.TestCase):
     3. Both implementations produce identical results
     
     Each test uses various graph sizes and types including:
-    - Small graphs (2-node, 4-node)
-    - Large graphs (8-node, 16-node)
-    - Special cases (connected, disconnected, negative weights)
+    -Small graphs (2-node, 4-node)
+    -Large graphs (8-node, 16-node)
+    -Special cases (connected, disconnected, negative weights)
     """
 
     def test_recursive_function(self):

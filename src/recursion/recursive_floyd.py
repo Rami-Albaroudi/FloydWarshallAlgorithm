@@ -52,7 +52,9 @@ def print_out_graph():
             print(message)
 
 
-def recursive_floyd(outer_loop: int = 0, middle_loop: int = 0, inner_loop: int = 0):
+def recursive_floyd(outer_loop: int = MIN_LEVEL,
+                    middle_loop: int = MIN_LEVEL,
+                    inner_loop: int = MIN_LEVEL):
     """
     Recursively finds the shortest path between all pairs of 
     nodes using Floyd-Warshall algorithm.
@@ -65,6 +67,8 @@ def recursive_floyd(outer_loop: int = 0, middle_loop: int = 0, inner_loop: int =
     outer_loop (int): Current intermediate node (k) being considered for path improvement.
     middle_loop (int): Current source node (i) from which paths originate.
     inner_loop (int): Current destination node (j) to which paths lead.
+    All the params are set to MIN_LEVEL (0) since we are starting the search at the
+    lowest level.
 
     Returns:
     None: Updates the global GRAPH in-place with shortest path distances.
