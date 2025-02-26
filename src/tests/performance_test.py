@@ -9,13 +9,15 @@ import sys
 from pathlib import Path
 parent_dir = Path(__file__).parent.parent
 sys.path.append(str(parent_dir))
+# Increase recursion limit to allow for larger graph processing
+sys.setrecursionlimit(10_000)
 from time import process_time # Import process_time for performance testing
 # Import recursive and iterative modules and functions
 from iterative.iterative_floyd import iterative_floyd as iterative_function
 import iterative.iterative_floyd as iterative_module
 from recursion.recursive_floyd import recursive_floyd as recursive_function
 import recursion.recursive_floyd as recursive_module
-from tests.testgraphs import TEST_GRAPHS # Import test graphs
+from tests.testgraphs import PERFORMANCE_GRAPHS # Import test graphs
 
 
 def performance_test(function_handle):
@@ -38,10 +40,10 @@ def performance_test(function_handle):
     
     # Number of iterations for process_time
     # Iteration count over 100,000 may take a significant amount of time
-    iterations = 100_000
+    iterations = 10_000
 
     # Test each graph in TEST_GRAPHS
-    for graph_name, graph in TEST_GRAPHS.items():
+    for graph_name, graph in PERFORMANCE_GRAPHS.items():
 
         print(f"\n= {graph_name} =")
         total_time = 0 # Initialize timing variable

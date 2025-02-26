@@ -3,7 +3,7 @@ This module has a simple implementation of Floyd's Algorithm
 It contains three main functions:
     main -> controls the execution of the script
     print_out_graph -> prints out the graph with nodes and distances
-    uteratuve_floyd -> computes shortest path
+    iteratuve_floyd -> computes shortest path
 
 The global variables are:
     NO_PATH = Marker for where there is no path. This is the max value of an integer
@@ -62,8 +62,10 @@ def iterative_floyd():
             GRAPH[start_node][end_node] = 0
             continue
 
-        GRAPH[start_node][end_node] = min(GRAPH[start_node][end_node],
-                                          GRAPH[start_node][intermediate] + GRAPH[intermediate][end_node])
+        GRAPH[start_node][end_node] =\
+        min(GRAPH[start_node][end_node],
+        GRAPH[start_node][intermediate] +
+        GRAPH[intermediate][end_node])
 
 
 if __name__ == "__main__":

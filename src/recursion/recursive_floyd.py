@@ -53,44 +53,38 @@ def print_out_graph():
 
 def recursive_floyd(outer_loop: int = 0, middle_loop: int = 0, inner_loop: int = 0):
     """
-    This function computes shortest path between each pair node
-    It computes by comparing a direct path with paths that have 
-    intermediate nodes in the path.
+    This function computes shortest path between each pair of nodes recursively.
+    It compares direct paths with paths that pass through intermediate nodes.
 
-    The recursive path is the shortest path function which
-    calls itself to find the shortest path between a pair of nodes
-
-    param: outer_loop: This variable is from the first loop of the iterative version.
-    It represents the intermediate node.
-    param: middle_loop: This variable is from the second loop of the iterative version
-    It represents the source node.
-    param: inner_loop: This variable is from the last loop of the iterative version
-    It represents the destination node.
+    param: outer_loop: Represents the current intermediate node being considered.
+    param: middle_loop: Represents the current source node.
+    param: inner_loop: Represents the current destination node.
     """
-    # This is the base case after we process all the paths
+    # Base case: If all intermediate nodes have been processed
     if outer_loop >= MAX_LENGTH:
         return
 
-    # Process the current node combination
+    # Handle self-loops: Set diagonal elements to 0
     if middle_loop == inner_loop:
         GRAPH[middle_loop][inner_loop] = 0
     else:
-        # Update the distance if the path through the intermediate node (outer_loop) is shorter
-        GRAPH[middle_loop][inner_loop] = min(
-            GRAPH[middle_loop][inner_loop],  # Current direct path
-            GRAPH[middle_loop][outer_loop] +
-            GRAPH[outer_loop][inner_loop]  # Path via intermediate node
-        )
+        # Update the distance if a shorter path is found through the intermediate node
+        if GRAPH[middle_loop][outer_loop] != NO_PATH and GRAPH[outer_loop][inner_loop] != NO_PATH:
+            GRAPH[middle_loop][inner_loop] = min(
+                GRAPH[middle_loop][inner_loop],
+                GRAPH[middle_loop][outer_loop] +
+                GRAPH[outer_loop][inner_loop]
+            )
 
     # Recursive calls to handle different cases
-    # Move to next inner_loop (destination node)
     if inner_loop < MAX_LENGTH - 1:
+        # Move to the next destination node
         recursive_floyd(outer_loop, middle_loop, inner_loop + 1)
-    # Move to next middle_loop (source node), reset inner_loop
     elif middle_loop < MAX_LENGTH - 1:
+        # Move to the next source node, reset destination node
         recursive_floyd(outer_loop, middle_loop + 1, 0)
-    # Move to next outer_loop (intermediate node), reset middle_loop and inner_loop
     else:
+        # Move to the next intermediate node, reset source and destination nodes
         recursive_floyd(outer_loop + 1, 0, 0)
 
 
