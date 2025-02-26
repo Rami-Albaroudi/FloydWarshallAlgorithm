@@ -62,10 +62,13 @@ def iterative_floyd():
             GRAPH[start_node][end_node] = 0
             continue
 
-        GRAPH[start_node][end_node] =\
-        min(GRAPH[start_node][end_node],
-        GRAPH[start_node][intermediate] +
-        GRAPH[intermediate][end_node])
+        # I had to put in a check for NO_PATH here to account for graphs
+        # with a negative weight
+        if GRAPH[start_node][intermediate] != NO_PATH and GRAPH[intermediate][end_node] != NO_PATH:
+            GRAPH[start_node][end_node] = min(
+                GRAPH[start_node][end_node],
+                GRAPH[start_node][intermediate] + GRAPH[intermediate][end_node]
+            )
 
 
 if __name__ == "__main__":

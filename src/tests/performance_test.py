@@ -17,7 +17,7 @@ from iterative.iterative_floyd import iterative_floyd as iterative_function
 import iterative.iterative_floyd as iterative_module
 from recursion.recursive_floyd import recursive_floyd as recursive_function
 import recursion.recursive_floyd as recursive_module
-from tests.testgraphs import PERFORMANCE_GRAPHS # Import test graphs
+from tests.testgraphs import TEST_GRAPHS # Import test graphs
 
 
 def performance_test(function_handle):
@@ -31,9 +31,9 @@ def performance_test(function_handle):
     None
     """
     # Determine which module to use based on the function
-    if function_handle == recursive_function:
+    if function_handle() == recursive_function():
         module = recursive_module
-    elif function_handle == iterative_function:
+    elif function_handle() == iterative_function():
         module = iterative_module
     else:
         return print("Invalid function.")
@@ -42,8 +42,9 @@ def performance_test(function_handle):
     # Iteration count over 100,000 may take a significant amount of time
     iterations = 10_000
 
-    # Test each graph in TEST_GRAPHS
-    for graph_name, graph in PERFORMANCE_GRAPHS.items():
+    # Iterate through all the test graphs from the 
+    # TEST_GRAPH dictionary items
+    for graph_name, graph in TEST_GRAPHS.items():
 
         print(f"\n= {graph_name} =")
         total_time = 0 # Initialize timing variable
