@@ -1,32 +1,34 @@
-# Floyd-Warshall Algorithm
+# README
+
+## Floyd-Warshall Algorithm
 
 This repository contains two versions of the Floyd-Warshall algorithm for finding the shortest paths between all pairs of nodes in a graph. The repository includes both **iterative** and **recursive** functions, along with sample graphs for testing, unit tests, and performance tests.
 
 #### What is the Floyd-Warshall Algorithm?
+
 The Floyd-Warshall algorithm is a dynamic programming approach for finding the shortest paths between all pairs of nodes in a weighted graph (binti Anuar and Said, 2016). It efficiently computes the shortest distances between every pair of vertices in a single execution (binti Anuar and Said, 2016).
 
 **Key Characteristics (binti Anuar and Said, 2016):**
+
 - Works with both positive and negative edge weights as long as there are no negative cycles.
 - Has a time complexity of O(n³) where n is the number of nodes.
 - Uses a simple approach of considering each vertex as a potential intermediate point on a path.
 
-The core idea is to iteratively improve the shortest path estimate between each pair of vertices (i,j) by considering whether going through another vertex k produces a shorter path than the current best known path (binti Anuar and Said, 2016).
-
 **References:**
-binti Anuar, A. H. and Said, M. F. M. (2016) 'Floyd’s     shortest-path algorithm theory', *Journal of Advanced Computing Research*, Vol 1(1), pp. 20-21.
 
+- binti Anuar, A. H. and Said, M. F. M. (2016) 'Floyd’s shortest-path algorithm theory', _Journal of Advanced Computing Research_, Vol 1(1), pp. 20-21.
 
 ---
 
 ### What is this repository for?
 
 - **Purpose**: To provide simple implementations of the Floyd-Warshall algorithm using both recursion and iteration, test both implementations, and compare their performance.
-- **Version**: 1.0
+- **Version**: 1.01
 - **Key Features**:
   - Recursive and iterative implementations of Floyd-Warshall.
   - Sample graphs for testing various scenarios (ex: disconnected graphs, negative weights).
-  - Unit tests to verify correctness.
-  - Performance testing scripts.
+  - Unit tests to verify the algorithms' correctness.
+  - Performance tests to measure the algorithms' execution items.
 
 ---
 
@@ -52,13 +54,13 @@ You can also use **venv**:
 
 ```
 python -m venv env
-source env/bin/activate    On macOS/Linux
-env\Scripts\activate       On Windows
+source env/bin/activate    # On macOS/Linux
+env\Scripts\activate       # On Windows
 ```
 
 #### 3. Install Dependencies
 
-Whether you are using **Anaconda/Miniconda or venv**, Install the required Python packages from `requirements.txt` as follows:
+Whether you are using **Anaconda/Miniconda or venv**, Install the required Python packages from `requirements.txt` by running:
 
 ```
 pip install -r requirements.txt
@@ -80,11 +82,9 @@ GRAPH = [
 ]
 ```
 
-If you wish to run the algorithms using a different graph, overwrite the `GRAPH` variable in the `recursive_floyd.py` or `iterative_floyd.py` files. Please make sure you set infinite values to `NO_PATH`.
+If you wish to run the algorithms using a different graph, overwrite the `GRAPH` variable in the `recursive_floyd.py` or `iterative_floyd.py` files. Please ensure you set infinite values to `NO_PATH`.
 
 #### 1. Run the Recursive Algorithm:
-
-This will allow you to run the recursive version of the algorithm. To run the algorithm:
 
 ```
 python src/recursion/recursive_floyd.py
@@ -92,15 +92,13 @@ python src/recursion/recursive_floyd.py
 
 #### 2. Run the Iterative Algorithm:
 
-This will allow you to run the iterative version of the algorithm. To run the algorithm:
-
 ```
 python src/iterative/iterative_floyd.py
 ```
 
 #### 3. Run Performance Tests:
 
-The performance test compares recursive and iterative execution times across various sample graphs. To run the performance tests:
+The performance test compares recursive and iterative execution times across various sample graphs.
 
 ```
 python src/tests/performance_test.py
@@ -113,8 +111,6 @@ The unit tests ensure that both versions of the algorithm meet the following cri
 - When given test input graphs, both the recursive and iterative functions' outputs match the corresponding expected output graphs.
 - The recursive and iterative functions produce identical output graphs for a given input graph.
 
-To run the unit tests:
-
 ```
 python src/tests/unittests.py
 ```
@@ -122,6 +118,7 @@ python src/tests/unittests.py
 Sample input graphs and their expected outputs are outlined below.
 
 ---
+
 ### Sample Graphs
 
 This project includes several sample graphs for testing different scenarios, including:
@@ -137,12 +134,7 @@ All sample graphs are defined in `src/tests/testgraphs.py`.
 
 ### Requirements
 
-The project requires the following dependencies:
-
-- Python 3.9 or later
-- Required packages (listed in `requirements.txt`)
-
-To install all dependencies:
+The project requires Python 3.9+ and the required packages listed in `requirements.txt`. To install all packages, run:
 
 ```
 pip install -r requirements.txt
@@ -158,28 +150,27 @@ The repository is organised as follows:
 FloydWarshallAlgorithm/
 ├── src/
 │   ├── iterative/
-│   │   ├── __init__.py             init file for module imports.
-│   │   └── iterative_floyd.py      Iterative implementation of Floyd-Warshall.
+│   │   ├── __init__.py             # init file for module imports.
+│   │   └── iterative_floyd.py      # Iterative implementation of Floyd-Warshall.
 │   ├── recursion/
-│   │   ├── __init__.py             init file for module imports.
-│   │   └── recursive_floyd.py      Recursive implementation of Floyd-Warshall.
-│   ├── tests/
-│   │   ├── __init__.py             init file for module imports.
-│   │   ├── performance_test.py     Performance testing script.
-│   │   ├── testgraphs.py           Sample graphs for testing.
-│   │   └── unittests.py            Unit tests.
-│   └── __init__.py                 init file for module imports.
-├── LICENSE                         Project license.
-├── README.md                       Project documentation.
-└── requirements.txt                Python dependencies.
+│   │   ├── __init__.py             # init file for module imports.
+│   │   └── recursive_floyd.py      # Recursive implementation of Floyd-Warshall.
+│   └── tests/
+│       ├── __init__.py             # init file for module imports.
+│       ├── performance_test.py     # Performance testing script.
+│       ├── testgraphs.py           # Sample graphs for testing.
+│       └── unittests.py            # Unit tests.
+├── LICENCE                         # Project licence.
+├── README.md                       # Project documentation.
+└── requirements.txt                # Required Python dependencies.
 ```
 
 ---
 
-### Known Issues
+### Known Issues/Limitations
 
-- The recursive implementation may be slower for larger graphs due to recursion overhead in Python.
-- The algorithm does not handle negative weight cycles since such cases may produce incorrect results.
+- The recursive function may be slower or return errors for larger graphs due to recursion overhead in Python.
+- Both functions may produce incorrect results or return errors for graphs with negative weight cycles, since the Floyd-Warshall algorithm is not designed to handle such cases.
 
 ---
 
