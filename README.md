@@ -60,7 +60,7 @@ env\Scripts\activate       # On Windows
 
 #### 3. Install Dependencies
 
-Whether you are using **Anaconda/Miniconda or venv**, Install the required Python packages from `requirements.txt` by running:
+Install the required Python packages from `requirements.txt` by running:
 
 ```
 pip install -r requirements.txt
@@ -123,7 +123,7 @@ Sample input graphs and their expected outputs are outlined below.
 
 This project includes several sample graphs for testing different scenarios, including:
 
-1. **Graph n Nodes**: Graphs with between 2 to 16 nodes.
+1. **Graph *n* Nodes**: Graphs with 2, 4, 8, and 16 nodes.
 2. **Disconnected Graph**: A graph where no nodes are connected.
 3. **Connected Graph**: A graph where all nodes are connected.
 4. **Graph with Negative Weights**: A graph with negative weights but no negative cycles.
