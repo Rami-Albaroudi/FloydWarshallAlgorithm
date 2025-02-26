@@ -172,10 +172,10 @@ EXPECTED_GRAPH_NEGATIVE = [
 
 # Dictionary of all test graphs for easy import
 TEST_GRAPHS = {
-    "2 Node Graph": GRAPH_2,
-    "4 Node Graph": GRAPH_4,
-    "8 Node Graph": GRAPH_8,
-    "16 Node Graph": GRAPH_16,
+    "2-Node Graph": GRAPH_2,
+    "4-Node Graph": GRAPH_4,
+    "8-Node Graph": GRAPH_8,
+    "16-Node Graph": GRAPH_16,
     "Connected Graph": GRAPH_CONNECTED,
     "Disconnected Graph": GRAPH_DISCONNECTED,
     "Negative Weights Graph": GRAPH_NEGATIVE,
@@ -183,10 +183,10 @@ TEST_GRAPHS = {
 
 # Dictionary of all test graphs' expected outputs for easy import
 TEST_GRAPHS_EXPECTED = {
-    "2 Node Graph": EXPECTED_GRAPH_2,
-    "4 Node Graph": EXPECTED_GRAPH_4,
-    "8 Node Graph": EXPECTED_GRAPH_8,
-    "16 Node Graph": EXPECTED_GRAPH_16,
+    "2-Node Graph": EXPECTED_GRAPH_2,
+    "4-Node Graph": EXPECTED_GRAPH_4,
+    "8-Node Graph": EXPECTED_GRAPH_8,
+    "16-Node Graph": EXPECTED_GRAPH_16,
     "Connected Graph": EXPECTED_GRAPH_CONNECTED,
     "Disconnected Graph": EXPECTED_GRAPH_DISCONNECTED,
     "Negative Weights Graph": EXPECTED_GRAPH_NEGATIVE,

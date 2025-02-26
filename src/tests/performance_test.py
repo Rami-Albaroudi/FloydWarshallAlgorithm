@@ -1,7 +1,6 @@
 """
 This module contains a simple performance test which
-compares the recursive version of Floyd's algorithm with the
-imperative version.
+compares the recursive version of Floyd's algorithm with the iterative version.
 """
 
 # Imports
@@ -43,7 +42,7 @@ def performance_test(function_handle):
 
     # Number of iterations for process_time
     # Iteration count over 100,000 may take a significant amount of time
-    iterations = 10_000
+    iterations = 1_000
 
     # Iterate through all the test graphs from the
     # TEST_GRAPH dictionary items
@@ -68,7 +67,7 @@ def performance_test(function_handle):
             total_time += (end_time - start_time)
 
         # Print results for this graph, display to 8 decimal places
-        print(f"{total_time:.8f} seconds")
+        print(f"{total_time:.8f} seconds for {iterations} iterations")
 
 print("\nRecursion Test Time")
 # Run the perfomance test on the recursive function

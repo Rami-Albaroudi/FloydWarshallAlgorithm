@@ -1,36 +1,55 @@
-# Floyd-Warshall Algorithm #
+# Floyd-Warshall Algorithm
 
-This repository contains implementations of the Floyd-Warshall algorithm for finding the shortest paths between all pairs of nodes in a graph. The repository includes both **iterative** and **recursive** implementations, along with sample graphs for testing and performance benchmarking.
+This repository contains two versions of the Floyd-Warshall algorithm for finding the shortest paths between all pairs of nodes in a graph. The repository includes both **iterative** and **recursive** functions, along with sample graphs for testing, unit tests, and performance tests.
+
+#### What is the Floyd-Warshall Algorithm?
+The Floyd-Warshall algorithm is a dynamic programming approach for finding the shortest paths between all pairs of nodes in a weighted graph (binti Anuar and Said, 2016). It efficiently computes the shortest distances between every pair of vertices in a single execution (binti Anuar and Said, 2016).
+
+**Key Characteristics (binti Anuar and Said, 2016):**
+- Works with both positive and negative edge weights as long as there are no negative cycles.
+- Has a time complexity of O(n³) where n is the number of nodes.
+- Uses a simple approach of considering each vertex as a potential intermediate point on a path.
+
+The core idea is to iteratively improve the shortest path estimate between each pair of vertices (i,j) by considering whether going through another vertex k produces a shorter path than the current best known path (binti Anuar and Said, 2016).
+
+**References:**
+binti Anuar, A. H. and Said, M. F. M. (2016) 'Floyd’s     shortest-path algorithm theory', *Journal of Advanced Computing Research*, Vol 1(1), pp. 20-21.
+
 
 ---
 
-### What is this repository for? ###
-- **Purpose**: To provide a simple and comprehensive implementation of the Floyd-Warshall algorithm using both recursion and iteration, then compare each approach's performance.
+### What is this repository for?
+
+- **Purpose**: To provide simple implementations of the Floyd-Warshall algorithm using both recursion and iteration, test both implementations, and compare their performance.
 - **Version**: 1.0
 - **Key Features**:
   - Recursive and iterative implementations of Floyd-Warshall.
   - Sample graphs for testing various scenarios (ex: disconnected graphs, negative weights).
   - Unit tests to verify correctness.
-  - Performance benchmarking scripts.
+  - Performance testing scripts.
 
 ---
 
-### How do I get set up? ###
+### How do I get set up?
 
 #### 1. Clone the Repository
+
 ```
 git clone <repository-url>
 cd <repository-folder>
 ```
 
 #### 2. Set Up the Environment
-If you're using **Anaconda**, create and activate a virtual environment:
+
+If you're using **Anaconda/Miniconda**, create and activate a virtual environment:
+
 ```
-conda create --name floyd_env python=3.9 -y
-conda activate floyd_env
+conda create --name environment_name python=3.9 -y
+conda activate environment_name
 ```
 
-Alternatively, use `venv`:
+You can also use **venv**:
+
 ```
 python -m venv env
 source env/bin/activate    On macOS/Linux
@@ -38,55 +57,102 @@ env\Scripts\activate       On Windows
 ```
 
 #### 3. Install Dependencies
-Install the required Python packages from `requirements.txt`:
+
+Whether you are using **Anaconda/Miniconda or venv**, Install the required Python packages from `requirements.txt` as follows:
+
 ```
-pip install -r src/requirements.txt
+pip install -r requirements.txt
 ```
 
 ---
 
-### Running the Scripts ###
+### Running the Scripts
 
-#### 1. Run the Recursive Implementation:
+Both versions of the algorithm use the following sample graph:
+
+```python
+NO_PATH = maxsize # from sys import maxsize
+GRAPH = [
+    [0,      7,      NO_PATH, 8     ],
+    [NO_PATH, 0,      5,      NO_PATH],
+    [NO_PATH, NO_PATH, 0,      2     ],
+    [NO_PATH, NO_PATH, NO_PATH, 0     ]
+]
+```
+
+If you wish to run the algorithms using a different graph, overwrite the `GRAPH` variable in the `recursive_floyd.py` or `iterative_floyd.py` files. Please make sure you set infinite values to `NO_PATH`.
+
+#### 1. Run the Recursive Algorithm:
+
+This will allow you to run the recursive version of the algorithm. To run the algorithm:
+
 ```
 python src/recursion/recursive_floyd.py
 ```
 
-#### 2. Run the Iterative Implementation:
+#### 2. Run the Iterative Algorithm:
+
+This will allow you to run the iterative version of the algorithm. To run the algorithm:
+
 ```
 python src/iterative/iterative_floyd.py
 ```
 
 #### 3. Run Performance Tests:
-The performance test compares recursive and iterative execution times across various sample graphs.
+
+The performance test compares recursive and iterative execution times across various sample graphs. To run the performance tests:
+
 ```
 python src/tests/performance_test.py
 ```
 
 #### 4. Run Unit Tests:
-Unit tests ensure that both algorithm implementations produce correct results.
+
+The unit tests ensure that both versions of the algorithm meet the following criteria:
+
+- When given test input graphs, both the recursive and iterative functions' outputs match the corresponding expected output graphs.
+- The recursive and iterative functions produce identical output graphs for a given input graph.
+
+To run the unit tests:
+
 ```
-python -m unittest discover src/tests/
+python src/tests/unittests.py
 ```
+
+Sample input graphs and their expected outputs are outlined below.
+
+---
+### Sample Graphs
+
+This project includes several sample graphs for testing different scenarios, including:
+
+1. **Graph n Nodes**: Graphs with between 2 to 16 nodes.
+2. **Disconnected Graph**: A graph where no nodes are connected.
+3. **Connected Graph**: A graph where all nodes are connected.
+4. **Graph with Negative Weights**: A graph with negative weights but no negative cycles.
+
+All sample graphs are defined in `src/tests/testgraphs.py`.
 
 ---
 
-### Requirements ###
+### Requirements
 
 The project requires the following dependencies:
+
 - Python 3.9 or later
 - Required packages (listed in `requirements.txt`)
 
 To install all dependencies:
+
 ```
-pip install -r src/requirements.txt
+pip install -r requirements.txt
 ```
 
 ---
 
-### Project Structure ###
+### Repository Structure
 
-The repository is organized as follows:
+The repository is organised as follows:
 
 ```
 FloydWarshallAlgorithm/
@@ -103,38 +169,23 @@ FloydWarshallAlgorithm/
 │   │   ├── testgraphs.py           Sample graphs for testing.
 │   │   └── unittests.py            Unit tests.
 │   └── __init__.py                 init file for module imports.
-│   └── requirements.txt            Python dependencies.
 ├── LICENSE                         Project license.
-└── README.md                       Project documentation.
+├── README.md                       Project documentation.
+└── requirements.txt                Python dependencies.
 ```
 
 ---
 
-### Sample Graphs ###
-
-This project includes several sample graphs for testing different scenarios, including:
-
-1. **Graph n Nodes**: Graphs with between 2 to 16 nodes.
-2. **Disconnected Graph**: A graph where no nodes are connected.
-3. **Connected Graph**: A graph where all nodes are connected.
-4. **Graph with Negative Weights**: A graph with negative weights but no negative cycles.
-
-All sample graphs are defined in `src/tests/testgraphs.py`.
-
----
-
-### Known Issues ###
+### Known Issues
 
 - The recursive implementation may be slower for larger graphs due to recursion overhead in Python.
 - The algorithm does not handle negative weight cycles since such cases may produce incorrect results.
 
 ---
 
-### Who do I talk to? ###
+### Who do I talk to?
 
 For questions or issues, please contact:
 
 - **Author**: Rami Albaroudi
 - **Email**: sgralbar@liverpool.ac.uk
-
-

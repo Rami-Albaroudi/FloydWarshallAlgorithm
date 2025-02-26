@@ -35,7 +35,7 @@ class FloydWarshallTest(unittest.TestCase):
     -Special cases (connected, disconnected, negative weights)
     """
 
-    def test_recursive_function(self):
+    def test_1_recursive_function(self):
         """
         Test the recursive function against expected outputs.
         
@@ -46,9 +46,13 @@ class FloydWarshallTest(unittest.TestCase):
         None: This test method performs assertions but doesn't return a value
         """
 
+        print("\n**Testing recursive function**")
+
         # Iterate through all the test graphs from the
         # TEST_GRAPH dictionary items
         for graph_name, graph in TEST_GRAPHS.items():
+
+            print(f"\nTesting {graph_name}")
 
             # Set up and run test
             with self.subTest(graph=graph_name):
@@ -68,7 +72,11 @@ class FloydWarshallTest(unittest.TestCase):
                     f"Failed on {graph_name}"
                 )
 
-    def test_iterative_function(self):
+        # Prints if no tests fail
+                print("PASSED")
+        print("\n**All recursive tests passed successfully**\n")
+
+    def test_2_iterative_function(self):
         """
         Test the iterative function against expected outputs.
         
@@ -79,9 +87,13 @@ class FloydWarshallTest(unittest.TestCase):
         None: This test method performs assertions but doesn't return a value
         """
 
+        print("\n**Testing iterative function**")
+
         # Iterate through all the test graphs from the
         # TEST_GRAPH dictionary items
         for graph_name, graph in TEST_GRAPHS.items():
+            
+            print(f"\nTesting {graph_name}")
 
             # Set up and run test
             with self.subTest(graph=graph_name):
@@ -101,7 +113,11 @@ class FloydWarshallTest(unittest.TestCase):
                     f"Failed on {graph_name}"
                 )
 
-    def test_functions_match(self):
+        # Prints if no tests fail
+                print("PASSED")
+        print("\n**All iterative tests passed successfully**\n")
+
+    def test_3_functions_match(self):
         """
         Test that both functions produce identical 
         results for the same graph.
@@ -113,9 +129,13 @@ class FloydWarshallTest(unittest.TestCase):
         None: This test method performs assertions but doesn't return a value
         """
 
+        print("\n**Testing that function outputs match**")
+
         # Iterate through all the test graphs from the
         # TEST_GRAPH dictionary items
         for graph_name, graph in TEST_GRAPHS.items():
+
+            print(f"\nTesting {graph_name}")
 
             # Set up and run test
             with self.subTest(graph=graph_name):
@@ -146,6 +166,10 @@ class FloydWarshallTest(unittest.TestCase):
                 # both functions are the same for each input graph
                 self.assertEqual(recursive_result, iterative_result)
 
+        # Prints if no tests fail
+                print("PASSED")
+        print("\n**All output matching tests passed successfully**\n")
+
 # Unit test main method required to run as module
 if __name__ == "__main__":
-    unittest.main()
+    unittest.main(verbosity=1)
