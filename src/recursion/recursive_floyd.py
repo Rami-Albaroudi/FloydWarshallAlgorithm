@@ -13,6 +13,7 @@ The global variables are:
     MIN_LEVEL = The lowest search level for the shortest path calculation
     NO_PATH_MARKER = Holder for no path possible. This is used for the printing function. 
 """
+
 # Imports
 from sys import maxsize
 NO_PATH = maxsize
@@ -53,23 +54,35 @@ def print_out_graph():
 
 def recursive_floyd(outer_loop: int = 0, middle_loop: int = 0, inner_loop: int = 0):
     """
-    This function computes shortest path between each pair of nodes recursively.
-    It compares direct paths with paths that pass through intermediate nodes.
+    Recursively finds the shortest path between all pairs of 
+    nodes using Floyd-Warshall algorithm.
+    
+    This function uses recursion to process each combination of 
+    intermediate, source, and destination nodes. It checks if a 
+    path through the intermediate node is shorter than the current direct path.
 
-    param: outer_loop: Represents the current intermediate node being considered.
-    param: middle_loop: Represents the current source node.
-    param: inner_loop: Represents the current destination node.
+    Parameters:
+    outer_loop (int): Current intermediate node (k) being considered for path improvement.
+    middle_loop (int): Current source node (i) from which paths originate.
+    inner_loop (int): Current destination node (j) to which paths lead.
+
+    Returns:
+    None: Updates the global GRAPH in-place with shortest path distances.
     """
-    # Base case: If all intermediate nodes have been processed
+
+    # Base case: Algorithm completion when all
+    # intermediate nodes have been processed
     if outer_loop >= MAX_LENGTH:
         return
 
-    # Handle self-loops: Set diagonal elements to 0
+    # Handle self-loops: Distance from a node to itself is always 0
     if middle_loop == inner_loop:
         GRAPH[middle_loop][inner_loop] = 0
     else:
-        # Update the distance if a shorter path is found through the intermediate node
+        # Only consider paths where both segments source to intermediate
+        # and intermediiate to destination exist
         if GRAPH[middle_loop][outer_loop] != NO_PATH and GRAPH[outer_loop][inner_loop] != NO_PATH:
+            # Calculate potential new path length through current intermediate node
             GRAPH[middle_loop][inner_loop] = min(
                 GRAPH[middle_loop][inner_loop],
                 GRAPH[middle_loop][outer_loop] +
@@ -78,13 +91,18 @@ def recursive_floyd(outer_loop: int = 0, middle_loop: int = 0, inner_loop: int =
 
     # Recursive calls to handle different cases
     if inner_loop < MAX_LENGTH - 1:
-        # Move to the next destination node
+         # Process next destination node while keeping
+         # same source and intermediate nodes
         recursive_floyd(outer_loop, middle_loop, inner_loop + 1)
     elif middle_loop < MAX_LENGTH - 1:
-        # Move to the next source node, reset destination node
+        # Process next source node and reset destination node
+        # while keeping same intermediate node
         recursive_floyd(outer_loop, middle_loop + 1, 0)
     else:
-        # Move to the next intermediate node, reset source and destination nodes
+        # Process next intermediate node and reset
+        # both source and destination nodes
+        # This make sure we fully process each intermediate node
+        # before moving to the next
         recursive_floyd(outer_loop + 1, 0, 0)
 
 

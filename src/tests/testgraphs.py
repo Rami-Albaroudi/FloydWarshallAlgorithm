@@ -5,7 +5,6 @@ algorithm. This file can be imported into the unit testing and
 performance testing modules. 
 '''
 
-
 # Imports
 from sys import maxsize
 NO_PATH = maxsize
@@ -171,7 +170,7 @@ EXPECTED_GRAPH_NEGATIVE = [
     [NO_PATH, NO_PATH, 0]
 ]
 
-# Dictionary of all test graphs
+# Dictionary of all test graphs for easy import
 TEST_GRAPHS = {
     "2 Node Graph": GRAPH_2,
     "4 Node Graph": GRAPH_4,
@@ -182,7 +181,7 @@ TEST_GRAPHS = {
     "Negative Weights Graph": GRAPH_NEGATIVE,
 }
 
-# Dictionary of all test graphs' expected outputs
+# Dictionary of all test graphs' expected outputs for easy import
 TEST_GRAPHS_EXPECTED = {
     "2 Node Graph": EXPECTED_GRAPH_2,
     "4 Node Graph": EXPECTED_GRAPH_4,

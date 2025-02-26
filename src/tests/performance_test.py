@@ -3,6 +3,7 @@ This module contains a simple performance test which
 compares the recursive version of Floyd's algorithm with the
 imperative version.
 """
+
 # Imports
 # Get parent directory and add to path
 import sys
@@ -25,24 +26,26 @@ def performance_test(function_handle):
     A function that performs a simple performance test using process_time.
 
     Parameters: 
-    function_handle: The function that is being tested
+    function_handle: The function that is being tested.
 
     Returns:
-    None
+    None.
     """
     # Determine which module to use based on the function
-    if function_handle() == recursive_function():
+    # Otherwise return early
+    if function_handle == recursive_function: # pylint: disable=comparison-with-callable
         module = recursive_module
-    elif function_handle() == iterative_function():
+    elif function_handle == iterative_function: # pylint: disable=comparison-with-callable
         module = iterative_module
     else:
-        return print("Invalid function.")
-    
+        print("Invalid function.")
+        return
+
     # Number of iterations for process_time
     # Iteration count over 100,000 may take a significant amount of time
     iterations = 10_000
 
-    # Iterate through all the test graphs from the 
+    # Iterate through all the test graphs from the
     # TEST_GRAPH dictionary items
     for graph_name, graph in TEST_GRAPHS.items():
 
@@ -68,7 +71,9 @@ def performance_test(function_handle):
         print(f"{total_time:.8f} seconds")
 
 print("\nRecursion Test Time")
+# Run the perfomance test on the recursive function
 performance_test(recursive_function)
 
 print("\nIterative Test Time")
+# Run the perfomance test on the iterative function
 performance_test(iterative_function)
