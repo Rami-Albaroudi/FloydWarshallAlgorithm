@@ -10,7 +10,7 @@ from pathlib import Path
 parent_dir = Path(__file__).parent.parent
 sys.path.append(str(parent_dir))
 # Increase recursion limit to allow for larger graph processing
-sys.setrecursionlimit(10_000)
+sys.setrecursionlimit(10000)
 from time import process_time # Import process_time for performance testing
 # Import recursive and iterative modules and functions
 from iterative.iterative_floyd import iterative_floyd as iterative_function
@@ -37,18 +37,18 @@ def performance_test(function_handle):
     elif function_handle == iterative_function: # pylint: disable=comparison-with-callable
         module = iterative_module
     else:
-        print("Invalid function.")
+        print("Invalid Function.")
         return
 
     # Number of iterations for process_time
     # Iteration count over 100,000 may take a significant amount of time
-    iterations = 100_000
+    iterations = 10_000
 
     # Iterate through all the test graphs from the
     # TEST_GRAPH dictionary items
     for graph_name, graph in TEST_GRAPHS.items():
 
-        print(f"\n= {graph_name} =")
+        print(f"\nTesting {graph_name}:")
         total_time = 0 # Initialise timing variable
 
         # Measure recursive time
@@ -67,12 +67,14 @@ def performance_test(function_handle):
             total_time += (end_time - start_time)
 
         # Print results for this graph, display to 8 decimal places
-        print(f"{total_time:.8f} seconds for {iterations} iterations")
+        print(f"{total_time:.8f} seconds for {iterations:,} iterations")
 
-print("\nRecursion Test Time")
+    print(f"\n** {function_handle.__name__} Performance Tests Complete **\n")
+
+print("\n** Recursive Test Times **")
 # Run the perfomance test on the recursive function
 performance_test(recursive_function)
 
-print("\nIterative Test Time")
+print("\n** Iterative Test Times **")
 # Run the perfomance test on the iterative function
 performance_test(iterative_function)
