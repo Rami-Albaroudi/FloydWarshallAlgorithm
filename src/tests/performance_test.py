@@ -41,8 +41,9 @@ def performance_test(function_handle):
         return
 
     # Number of iterations for process_time
-    # Iteration count over 100,000 may take a significant amount of time
-    iterations = 10_000
+    # WARNING: Iteration count over 100,000 may take 
+    # a significant amount of time or cause errors
+    iterations = 100_000
 
     # Iterate through all the test graphs from the
     # TEST_GRAPH dictionary items

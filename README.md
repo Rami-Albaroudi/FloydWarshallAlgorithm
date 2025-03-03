@@ -6,13 +6,13 @@ This repository contains two versions of the Floyd-Warshall algorithm for findin
 
 #### What is the Floyd-Warshall Algorithm?
 
-The Floyd-Warshall algorithm is a dynamic programming approach for finding the shortest paths between all pairs of nodes in a weighted graph (binti Anuar and Said, 2016). It efficiently computes the shortest distances between every pair of vertices in a single execution (binti Anuar and Said, 2016).
+The Floyd-Warshall algorithm is a dynamic programming approach for finding the shortest paths between all pairs of nodes in a weighted graph (binti Anuar and Said, 2016). It efficiently computes the shortest distances between every pair of nodes (binti Anuar and Said, 2016).
 
 **Key Characteristics (binti Anuar and Said, 2016):**
 
 - Works with both positive and negative edge weights as long as there are no negative cycles.
-- Has a time complexity of O(n³) where n is the number of nodes.
-- Uses a simple approach of considering each vertex as a potential intermediate point on a path.
+- Has a time complexity of O(n³) and a space complexity of O(n²) where n is the number of nodes.
+- Uses a simple approach of considering each node as a potential intermediate point on a path.
 
 **References:**
 

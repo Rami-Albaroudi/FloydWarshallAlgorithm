@@ -105,7 +105,7 @@ def recursive_floyd(outer_loop: int = MIN_LEVEL,
     else:
         # Process next intermediate node and reset
         # both source and destination nodes
-        # This make sure we fully process each intermediate node
+        # This make sure it fully processes each intermediate node
         # before moving to the next
         recursive_floyd(outer_loop + 1, 0, 0)
 

@@ -72,8 +72,8 @@ class FloydWarshallTest(unittest.TestCase):
                     f"Failed on {graph_name}"
                 )
 
+                print("PASSED") # Prints when an individual test passes
         # Prints if no tests fail
-                print("PASSED")
         print("\n** All Recursive Tests Passed Successfully **\n")
 
     def test_2_iterative_function(self):
@@ -113,8 +113,8 @@ class FloydWarshallTest(unittest.TestCase):
                     f"Failed on {graph_name}"
                 )
 
+                print("PASSED") # Prints when an individual test passes
         # Prints if no tests fail
-                print("PASSED")
         print("\n** All Iterative Tests Passed Successfully **\n")
 
     def test_3_functions_match(self):
@@ -166,10 +166,9 @@ class FloydWarshallTest(unittest.TestCase):
                 # both functions are the same for each input graph
                 self.assertEqual(recursive_result, iterative_result)
 
+                print("PASSED") # Prints when an individual test passes
         # Prints if no tests fail
-                print("PASSED")
         print("\n** All Output Matching Tests Passed Successfully **\n")
 
-# Unit test main method required to run as module
 if __name__ == "__main__":
     unittest.main(verbosity=1)
